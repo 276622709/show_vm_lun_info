@@ -1,0 +1,24 @@
+{%load test_tags%}
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+.red {background:red;}
+a:link    {color:blue;}
+a:visited {color:blue;}
+a:hover   {color:red;}
+a:active  {color:yellow;}
+</style>
+</head>
+<body>
+<pre>{{calendar_info|safe}}</pre>
+<br>数据收集期间为{{time}}-00:00:00</br>
+<table>
+<tr><th>Lun名称</th><th>Lun总大小</th><th>Lun剩余空间</th><th>相比前一天剩余空间减少了</th><th>Lun中虚拟机</th></tr>
+{%for i in result%}
+<tr><td>{{i.lun}}</td><td>{{i.all_space|format_value}}GB</td><td>{{i.free_space|format_value}}GB</td><td>{{time_dir|cal_diff_value:i.lun}}</td><td><a href="/lun/{{i.id}}/">查看</a></td>
+{%endfor%}
+</table>
+</body>
+</html>
+

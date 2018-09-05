@@ -1,0 +1,39 @@
+from django.shortcuts import render,get_object_or_404
+
+# Create your views here.
+from .models import Lun_info, Vm_info
+import calendar
+import datetime
+from dateutil.relativedelta import relativedelta
+# Create index view used for show lun info
+class EmployeeScheduleCalendar(calendar.HTMLCalendar):
+  def __init__(self,firstweekday=0):
+    self.firstweekday = firstweekday # 0 = Monday, 6 = Sunday
+    self.year=datetime.datetime.now().year
+    self.month=datetime.datetime.now().month
+  def formatday(self, day, weekday):
+    if day == 0:
+      return '<td class="noday">&nbsp;</td>' # day outside month
+    else:
+      return '<td class="%s"><a href="%s">%d</a></td>' % (self.cssclasses[weekday], '/index'+'/'+str(self.year)+'/'+str(self.month)+'/'+str(day), day)
+  def formatmonthname(self, theyear, themonth, withyear=True):
+    if withyear:
+        s = '%s %s' % (month_name[themonth], theyear)
+    else:
+        s = '%s' % month_name[themonth]
+#    return '<tr><a href="%s"></a><th colspan="7" class="month">%s</th><a href="%s"></a></tr>' % (,s,)
+      return '<tr><th colspan="7" class="month">%s</th></tr>' % s
+def index(request):
+#  Lun_info.objects.get(date=)
+  current_year=datetime.datetime.now().year
+  current_month=datetime.datetime.now().month
+  current_day=datetime.datetime.now().day
+  last_month=datetime.datetime.now() + relativedelta(months=1)
+#  calendar_info=calendar.month(current_year,current_month)
+#  calendar_info = calendar.HTMLCalendar(calendar.MONDAY)
+  calendar_info = EmployeeScheduleCalendar(calendar.MONDAY)
+  cal=calendar_info.formatmonth(current_year,current_month)
+#  calendar_info = "<br />".join(calendar_info.split("\n"))
+#  print(cal)
+  print(last_month)
+  return render(request,'vm/index.html',context={'calendar_info':cal})

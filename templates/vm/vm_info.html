@@ -1,0 +1,23 @@
+{%load test_tags%}
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+.red {background:red;}
+a:link    {color:blue;}
+a:visited {color:blue;}
+a:hover   {color:red;}
+a:active  {color:yellow;}
+</style>
+</head>
+<body>
+<table>
+{{lun_info.date.year}}-{{lun_info.date.month}}-{{lun_info.date.day}}-00:00:00获取信息如下  <a href="/index/{{lun_info.date.year}}/{{lun_info.date.month}}/{{lun_info.date.day}}/">返回前一页</a>
+<tr><th>{{lun_info.lun}}中虚拟机名称</th><th>Cpu核数</th><th>内存大小</th><th>虚拟机磁盘大小</th><th>虚拟机已使用磁盘空间</th><th>磁盘相对前一天增长了</th></tr>
+{%for i in vm_info%}
+<tr><td>{{i.vm_name}}</td><td>{{i.vm_cpu}}核</td><td>{{i.vm_mem}}MB</td><td>{{i.vm_disk|format_value}}GB</td><td>{{i.vm_used_space|format_value}}GB</td><td>{{i.date|vm_func:i.vm_id}}</td>
+{%endfor%}
+</table>
+</body>
+</html>
+
