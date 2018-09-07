@@ -20,11 +20,10 @@
 >python manage.py makemigration
 >python manage.py migrate
 ### 4.启动django
-> python manager.py runserver 0.0.0.0:9000\
+> python manager.py runserver 0.0.0.0:9000
 ### 5.使用getallvms_bak1.py 文件获取所需数据
 安装pyvmomi-community-samples 查看http://vmware.github.io/pyvmomi-community-samples/ \
 将getallvms_bak1.py 拷贝到 samples目录下
->python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s 你的vcenterip地址 -u 用户名 -p 密码 -S
 ### 6.使用crontab
 > 2 0 * * * python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip地址" -u "用户名" -p '密码' -S
 
