@@ -13,7 +13,7 @@
 ### 2.安装mysql数据库
 过程略，创建数据库名为vm
 ### 3.创建项目并，初始化数据库表信息
-django-admin startproject test\
+> django-admin startproject test\
 cd test\
 拷贝程序代码到你想要运行的目录\
 初始化数据库\
@@ -22,7 +22,7 @@ python manage.py migrate
 ### 4.启动django
 > python manager.py runserver 0.0.0.0:9000
 ### 5.使用getallvms_bak1.py 文件获取所需数据
-安装pyvmomi-community-samples 查看http://vmware.github.io/pyvmomi-community-samples/ \
+安装pyvmomi-community-samples 参考http://vmware.github.io/pyvmomi-community-samples/ \
 将getallvms_bak1.py 拷贝到 samples目录下
 ### 6.使用crontab
 > 2 0 * * * python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip地址" -u "用户名" -p '密码' -S
