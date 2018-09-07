@@ -16,8 +16,8 @@
 > django-admin startproject test\
 cd test
 
-拷贝程序代码到你想要运行的目录
-> cp 我的目录中的所有文件
+拷贝程序代码到当前目录
+> cp 我的目录中的所有文件 ./
 
 初始化数据库
 > python manage.py makemigration\
