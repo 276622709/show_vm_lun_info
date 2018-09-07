@@ -13,8 +13,8 @@
 ### 2.安装mysql数据库
 过程略，创建数据库名为vm
 ### 3.创建项目并，初始化数据库表信息
->django-admin startproject test\
->cd test\
+>django-admin startproject test
+>cd test
 拷贝程序代码到你想要运行的目录\
 初始化数据库
 >python manage.py makemigration
