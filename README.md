@@ -27,6 +27,8 @@ cd test
 初始化数据库
 > python manage.py makemigrations\
 python manage.py migrate
+
+修改setup.py中对应的root和密码设置
 ### 4.启动django
 > python manager.py runserver 0.0.0.0:9000
 ### 5.使用getallvms_bak1.py 文件获取所需数据
