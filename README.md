@@ -11,7 +11,7 @@
 ### 1.搭建django平台
 网上随便找个例子安装基础环境就行，我的环境是django1.10.6，python版本3.5 用的virtualenv 网上有教程
 ### 2.安装mysql数据库
-过程略，创建数据库名为vm\
+过程略，启动mysql服务，设置数据库管理员密码，创建数据库名为vm\
 安装mysqlclient,用于和mysql数据库交互，安装mysqlclient之前需要安装mysql-devel\
 yum install mysql-devel -y\
 pip3 install mysqlclient
@@ -23,7 +23,7 @@ cd test
 > cp 我的目录中的所有文件 ./
 
 初始化数据库
-> python manage.py makemigration\
+> python manage.py makemigrations\
 python manage.py migrate
 ### 4.启动django
 > python manager.py runserver 0.0.0.0:9000
@@ -33,5 +33,6 @@ python manage.py migrate
 ### 6.使用crontab
 > 2 0 * * * python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip地址" -u "用户名" -p '密码' -S
 
-至此，搭建过程结束
+至此，搭建过程结束\
+有很多可以去优化可添加的地方，以后有时间会去修改和添加新功能
 
