@@ -29,8 +29,8 @@ from pyVmomi import vim
 
 import tools.cli as cli
 import sys
-reload(sys)                      # reload 才能调用 setdefaultencoding 方法  
-sys.setdefaultencoding('utf-8')  # 设置 'utf-8' 
+#reload(sys)                      # reload 才能调用 setdefaultencoding 方法  
+#sys.setdefaultencoding('utf-8')  # 设置 'utf-8' 
 date=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 print(date)
 def print_vm_info(virtual_machine):
