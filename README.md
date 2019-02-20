@@ -12,6 +12,9 @@
 网上随便找个例子安装基础环境就行，我的环境是django1.10.6，python版本3.5 用的virtualenv 网上有教程
 ### 2.安装mysql数据库
 过程略，创建数据库名为vm
+安装mysqlclient,用于和mysql数据库交互，安装mysqlclient之前需要安装mysql-devel
+yum install mysql-devel -y
+pip3 install mysqlclient
 ### 3.创建项目并，初始化数据库表信息
 > django-admin startproject test\
 cd test
