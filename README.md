@@ -15,7 +15,7 @@
 安装mysqlclient,用于和mysql数据库交互，安装mysqlclient之前需要安装mysql-devel\
 yum install mysql-devel -y\
 pip3 install mysqlclient\
-安装dateutil模块
+安装dateutil模块\
 pip3.5 install python-dateutil
 ### 3.创建项目并初始化数据库表信息
 > django-admin startproject test\
