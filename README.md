@@ -14,8 +14,10 @@
 过程略，启动mysql服务，设置数据库管理员密码，创建数据库名为vm\
 安装mysqlclient,用于和mysql数据库交互，安装mysqlclient之前需要安装mysql-devel\
 yum install mysql-devel -y\
-pip3 install mysqlclient
-### 3.创建项目并，初始化数据库表信息
+pip3 install mysqlclient\
+安装dateutil模块
+pip3.5 install python-dateutil
+### 3.创建项目并初始化数据库表信息
 > django-admin startproject test\
 cd test
 
