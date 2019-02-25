@@ -35,7 +35,16 @@ python manage.py migrate
 安装pyvmomi-community-samples 参考http://vmware.github.io/pyvmomi-community-samples/ \
 将getallvms_bak1.py 拷贝到 samples目录下
 ### 6.使用crontab
-> 2 0 * * * python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip地址" -u "用户名" -p '密码' -S
+编写一个shell脚本\
+在/root/pyvmomi-community-samples/samples/目录下编写一个叫做1的shell脚本，并给1文件可执行权限，里面内容是下面2行\
+chmod 777 1\
+下面是1的内容
+
+>source "你的virtualenv activate路径"
+python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip地址" -u "用户名" -p '密码' -S\
+
+#crontab -e
+>1 0 * * * sh /root/pyvmomi-community-samples/samples/1
 
 至此，搭建过程结束\
 有很多可以去优化可添加的地方，以后有时间会去修改和添加新功能
