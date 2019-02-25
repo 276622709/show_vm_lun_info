@@ -11,7 +11,7 @@
 ### 1.搭建django平台
 网上随便找个例子安装基础环境就行，我的环境是django1.10.6，python版本3.5 用的virtualenv 网上有教程
 ### 2.安装mysql数据库
-过程略，启动mysql服务，设置数据库管理员密码，创建数据库名为vm\
+过程略，启动mysql服务，设置数据库管理员密码，创建数据库名为vm，创建数据库的时候执行字符编码为utf8\
 安装mysqlclient,用于和mysql数据库交互，安装mysqlclient之前需要安装mysql-devel\
 yum install mysql-devel -y\
 pip3 install mysqlclient\
@@ -36,13 +36,14 @@ python manage.py migrate
 将getallvms_bak1.py 拷贝到 samples目录下
 ### 6.使用crontab
 编写一个shell脚本\
-在/root/pyvmomi-community-samples/samples/目录下编写一个叫做1的shell脚本，并给1文件可执行权限，里面内容是下面2行\
->chmod 777 1\
+在/root/pyvmomi-community-samples/samples/目录下编写一个叫做1的shell脚本，并给1文件可执行权限
+>chmod 777 1
 
 下面是文件1的内容
->source "你的virtualenv activate路径"
-python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip地址" -u "用户名" -p '密码' -S\
+>source "你的virtualenv activate路径"\
+python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip地址" -u "用户名" -p '密码' -S
 
+写计划任务\
 #crontab -e
 >1 0 * * * sh /root/pyvmomi-community-samples/samples/1
 
