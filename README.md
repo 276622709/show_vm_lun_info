@@ -48,5 +48,6 @@ python /root/pyvmomi-community-samples/samples/getallvms_bak1.py -s "vcenter ip�
 >1 0 * * * sh /root/pyvmomi-community-samples/samples/1
 
 至此，搭建过程结束\
+我的环境lun取值名为lun1,lun2,lun3,等等，因为我的环境中只是共享存储中有虚拟机，如果你需要查看database中的虚拟机，需要修改代码,将views.py中的result变量中的filter(lun__icontains='lun').order_by('lun')去掉\
 有很多可以去优化可添加的地方，以后有时间会去修改和添加新功能
 
